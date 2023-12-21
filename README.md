@@ -1,2 +1,2 @@
-# redwings
-Red Wings Data Scraping Project
+# NewsSummary AI
+Daily stock news Data Scraping Project 
