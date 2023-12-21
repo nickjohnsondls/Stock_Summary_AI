@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Titles from Real Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #f36d33 3px solid;
+        }
+        header a {
+            color: #f36d33;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Job Titles</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Available Jobs</h2>
+        <ul>
+            {% for job in jobs %}
+                <li>{{ job }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>Data sourced from Real Python's fake job listings</p>
+    </footer>
+</body>
+</html>
