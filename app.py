@@ -5,16 +5,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from flask import Flask, render_template
 
+
+
+
+
 #URl + extraction 
 url = 'https://realpython.github.io/fake-jobs/'
 html = requests.get(url)
 soup = BeautifulSoup(html.content, 'html.parser')
 
+# finding all of the job titles using the 
 results = soup.find(id='ResultsContainer')
 job_title = results.find_all('h2', class_= 'title is-5')
-
-
-
 
 # Example Extracting 
 data = [] 
