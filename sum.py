@@ -11,7 +11,7 @@ def summarize_text_list(text_list):
     text = ' '.join(text_list)
 
     # Print the text to debug
-    print("Read text:", text[:500])  # Print the first 500 characters for debugging
+    # print("Read text:", text[:500])  # Print the first 500 characters for debugging
 
     # Tokenize and encode the text
     inputs = tokenizer.encode("summarize: " + text, return_tensors="pt", max_length=512, truncation=True)
@@ -25,5 +25,5 @@ def summarize_text_list(text_list):
     return summary
 
 # Summarize the list of texts
-summary = summarize_text_list(extraction('https://www.biospace.com/news/money/'))
-print("Summary:", summary)
+# summary = summarize_text_list(extraction('https://www.biospace.com/news/money/'))
+#print("Summary:", summary)
