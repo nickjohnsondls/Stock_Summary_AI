@@ -7,7 +7,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            background: #ffffff;
         }
         .container {
             width: 80%;
@@ -15,22 +15,22 @@
             overflow: hidden;
         }
         header {
-            background: #333;
+            background: rgb(47, 4, 236);
             color: white;
             padding-top: 30px;
             min-height: 70px;
-            border-bottom: #f36d33 3px solid;
+            border-bottom: rgb(236, 248, 62) 3px solid;
         }
         header a {
-            color: #f36d33;
+            color: rgb(236, 248, 62);
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
         }
         footer {
-            padding: 20px;
-            margin-top: 20px;
-            background: #333;
+            padding: 80px;
+            margin-top: 100px;
+            background: rgb(47, 4, 236);
             color: white;
             text-align: center;
         }
@@ -44,19 +44,29 @@
     </header>
 
     <div class="container">
-        <h2>Financials</h2>
+        <h2>Overall Market</h2>
         <ul>
-                <li>{{ summary }}</li>
+            {% for item in Techsummary %}
+                <li>{{ item }}</li>
+            {% endfor %}
         </ul>
+
         <h2>Biotechology</h2>
-        
+        <ul>
+            {% for x in summary %}
+                <li>{{ x }}</li>
+            {% endfor %}
+        </ul>
         <h2>Energy</h2>
-        <h2>Real Estate</h2>
-        <h2>Consumer Goods</h2>
+        <ul>
+            {% for y in energysum %}
+                <li>{{ y }}</li>
+            {% endfor %}
+        </ul>
     </div>
 
     <footer>
-        <p>Data sourced from Real Python's fake job listings</p>
+        <p>Data sourced from BioSpace.com, seekingAlpha.com, and yahoofinance.com  </p>
     </footer>
 </body>
 </html>

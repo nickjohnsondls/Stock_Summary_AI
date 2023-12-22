@@ -15,8 +15,20 @@ def container (url_path, html_type):
             return 'h3'
         elif html_type == 'class':
             return 'lister__header'
-
-
+    if url_path == 'https://seekingalpha.com/market-news/energy':
+        if html_type == 'id':
+            return 'content'
+        elif html_type == 'section':
+            return 'a'
+        elif html_type == 'class':
+            return 'text-share-text visited:text-share-text hover:text-share-text focus:text-share-text'
+    if url_path == 'https://finance.yahoo.com/tech/':
+        if html_type == 'id': 
+            return 'Main'
+        elif html_type == 'section':
+            return 'h3'
+        elif html_type == 'class':
+            return 'Mb(5px)'
 
 
 def extraction(url_path):
@@ -32,7 +44,8 @@ def extraction(url_path):
     # Example Extracting 
     data = [] 
     for job in job_title:
-        data.append(job.text)
+        if len(data) < 3:
+            data.append(job.text)
 
     return data
 

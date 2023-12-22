@@ -3,12 +3,12 @@ from app import extraction
 
 def summarize_text_list(text_list):
     # Load the pre-trained model and tokenizer
-    model_name = "t5-small"
+    model_name = "t5-large"
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     tokenizer = T5Tokenizer.from_pretrained(model_name)
 
     # Concatenate the list of strings into a single text
-    text = ' '.join(text_list)
+    text = '--- '.join(text_list)
 
     # Print the text to debug
     # print("Read text:", text[:500])  # Print the first 500 characters for debugging
