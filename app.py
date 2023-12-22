@@ -3,39 +3,45 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
-from flask import Flask, render_template
+
+
+# function returning which id, section heading, and class based on website
+def container (url_path, html_type):
+   #biotech
+    if url_path == 'https://www.biospace.com/news/money/' :
+        if html_type == 'id':
+            return 'main'
+        elif html_type == 'section':
+            return 'h3'
+        elif html_type == 'class':
+            return 'lister__header'
+
+
+
+
+def extraction(url_path):
+    #URl + extraction 
+    url = url_path
+    html = requests.get(url)
+    soup = BeautifulSoup(html.content, 'html.parser')
+
+    # finding all of the job titles using the 
+    results = soup.find(id = container (url_path, 'id'))
+    job_title = results.find_all(container (url_path, 'section'), class_= container (url_path, 'class'))
+
+    # Example Extracting 
+    data = [] 
+    for job in job_title:
+        data.append(job.text)
+
+    return data
 
 
 
 
 
-#URl + extraction 
-url = 'https://realpython.github.io/fake-jobs/'
-html = requests.get(url)
-soup = BeautifulSoup(html.content, 'html.parser')
-
-# finding all of the job titles using the 
-results = soup.find(id='ResultsContainer')
-job_title = results.find_all('h2', class_= 'title is-5')
-
-# Example Extracting 
-data = [] 
-for job in job_title:
-    data.append(job.text)
 
 
-
-#Convert data to a DataFrame
-df = pd.DataFrame(data, columns=['jobs'])
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('template.html', jobs =data)  # Your HTML file
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
 
