@@ -35,7 +35,7 @@ def scrape_and_summarize():
 scrape_and_summarize()
 
 # Add a scheduled job
-scheduler.add_job(func=scrape_and_summarize, trigger='interval', hours=1)  # Adjust the interval as needed
+scheduler.add_job(func=scrape_and_summarize, trigger='interval', hours=3)  # Adjust the interval as needed
 scheduler.start()
 
 
