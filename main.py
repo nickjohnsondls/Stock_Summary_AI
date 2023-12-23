@@ -16,7 +16,7 @@ overall = ''
 
 
 def scrape_and_summarize():
-
+    global biotech, energy, overall
     #Biotech extraction
     titlesBio = extraction('https://www.biospace.com/news/money/')
     biotech = titlesBio
@@ -30,6 +30,9 @@ def scrape_and_summarize():
     titlesOverall = extraction('https://finance.yahoo.com/tech/')
     overall = titlesOverall
 
+
+#initialize site
+scrape_and_summarize()
 
 # Add a scheduled job
 scheduler.add_job(func=scrape_and_summarize, trigger='interval', hours=1)  # Adjust the interval as needed
