@@ -1,2 +1,2 @@
-# NewsSummary AI
-NewsSummary AI Project
+# Stock Summary AI
+Stock Summary AI Project
